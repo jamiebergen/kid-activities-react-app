@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
-function App() {
+import ActivityList from "./components/ActivityList";
+
+const App = () => {
+  const [posts, setPosts] = useState([]);
+  const [postsLoaded, setPostsLoaded] = useState(false);
+
+  const apiUrl = `https://kidactivities.jamiebergen.com/wp-json/wp/v2/posts`;
+
+  const fetchPosts = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((posts) => {
+        setPosts(posts);
+        setPostsLoaded(true);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => fetchPosts(apiUrl), [apiUrl]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ActivityList posts={posts} postsLoaded={postsLoaded} />
     </div>
   );
-}
+};
 
 export default App;
