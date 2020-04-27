@@ -28,8 +28,6 @@ const SearchFilter = ({ posts, setFilteredPosts }) => {
     setSearchValue("");
     setFilterValue("");
     setFilteredPosts(posts);
-    const selectAge = document.querySelector("#age-group");
-    selectAge.selectedIndex = null;
   };
 
   return (
@@ -43,7 +41,12 @@ const SearchFilter = ({ posts, setFilteredPosts }) => {
         id="search"
       />
       <label htmlFor="age-group">Filter by age group:</label>
-      <select name="age" id="age-group" onChange={handleFilterInputChange}>
+      <select
+        name="age"
+        id="age-group"
+        onChange={handleFilterInputChange}
+        value={filterValue}
+      >
         <option value="">Select Age Group</option>
         <option value="baby">Baby</option>
         <option value="toddler">Toddler</option>

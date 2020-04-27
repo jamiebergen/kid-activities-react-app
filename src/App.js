@@ -3,6 +3,7 @@ import "./App.css";
 
 import Header from "./components/Header";
 import ActivityList from "./components/ActivityList";
+import SelectedActivities from "./components/SelectedActivities";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -26,6 +27,7 @@ const App = () => {
     <div className="App">
       <Header />
       <ActivityList posts={posts} postsLoaded={postsLoaded} />
+      <SelectedActivities />
     </div>
   );
 };

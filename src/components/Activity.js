@@ -6,6 +6,12 @@ const Activity = ({ post }) => {
       <h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
       <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
       <span>{post.acf.ages.join(", ")}</span>
+      <form>
+        <label>
+          Select:
+          <input name="selectActivity" type="checkbox" />
+        </label>
+      </form>
     </li>
   );
 };
