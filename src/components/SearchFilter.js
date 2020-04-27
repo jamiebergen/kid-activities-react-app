@@ -12,7 +12,7 @@ const SearchFilter = ({ posts, setFilteredPosts }) => {
     setFilterValue(e.target.value);
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchFilterSubmit = (e) => {
     e.preventDefault();
     let results = posts.filter((post) =>
       post.title.rendered.toLowerCase().includes(searchValue.toLowerCase())
@@ -50,7 +50,7 @@ const SearchFilter = ({ posts, setFilteredPosts }) => {
         <option value="kindergarten">Kindergarten</option>
       </select>
       <input
-        onClick={handleSearchSubmit}
+        onClick={handleSearchFilterSubmit}
         type="submit"
         value="Filter Activities"
       />
