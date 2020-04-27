@@ -13,11 +13,15 @@ const ActivityList = ({ posts, postsLoaded }) => {
       {postsLoaded ? (
         <>
           <SearchFilter posts={posts} setFilteredPosts={setFilteredPosts} />
-          <ul>
-            {filteredPosts.map((post) => (
-              <Activity key={post.id} post={post} />
-            ))}
-          </ul>
+          {filteredPosts.length > 0 ? (
+            <ul>
+              {filteredPosts.map((post) => (
+                <Activity key={post.id} post={post} />
+              ))}
+            </ul>
+          ) : (
+            <p>No Results</p>
+          )}
         </>
       ) : (
         <>

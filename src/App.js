@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+import Header from "./components/Header";
 import ActivityList from "./components/ActivityList";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
       <ActivityList posts={posts} postsLoaded={postsLoaded} />
     </div>
   );
