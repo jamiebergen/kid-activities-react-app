@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Activity from "./Activity";
 import SearchFilter from "./SearchFilter";
 
-const ActivityList = ({ posts, postsLoaded }) => {
+const ActivityList = ({ posts, postsLoaded, selectedIds, setSelectedIds }) => {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => setFilteredPosts(posts), [posts]);
@@ -16,7 +16,12 @@ const ActivityList = ({ posts, postsLoaded }) => {
           {filteredPosts.length > 0 ? (
             <ul>
               {filteredPosts.map((post) => (
-                <Activity key={post.id} post={post} />
+                <Activity
+                  key={post.id}
+                  post={post}
+                  selectedIds={selectedIds}
+                  setSelectedIds={setSelectedIds}
+                />
               ))}
             </ul>
           ) : (

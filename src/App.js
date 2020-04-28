@@ -3,11 +3,12 @@ import "./App.css";
 
 import Header from "./components/Header";
 import ActivityList from "./components/ActivityList";
-import SelectedActivities from "./components/SelectedActivities";
+import SelectedActivitiesList from "./components/SelectedActivitiesList";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [postsLoaded, setPostsLoaded] = useState(false);
+  const [selectedIds, setSelectedIds] = useState([]);
 
   const apiUrl = `https://kidactivities.jamiebergen.com/wp-json/wp/v2/posts`;
 
@@ -26,8 +27,17 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <ActivityList posts={posts} postsLoaded={postsLoaded} />
-      <SelectedActivities />
+      <ActivityList
+        posts={posts}
+        postsLoaded={postsLoaded}
+        selectedIds={selectedIds}
+        setSelectedIds={setSelectedIds}
+      />
+      <SelectedActivitiesList
+        posts={posts}
+        selectedIds={selectedIds}
+        setSelectedIds={setSelectedIds}
+      />
     </div>
   );
 };
