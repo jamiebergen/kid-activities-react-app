@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import ActivityList from "./components/ActivityList";
 import SelectedActivitiesList from "./components/SelectedActivitiesList";
+import SuppliesList from "./components/SuppliesList";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -38,6 +39,7 @@ const App = () => {
         selectedIds={selectedIds}
         setSelectedIds={setSelectedIds}
       />
+      <SuppliesList posts={posts} selectedIds={selectedIds} />
     </div>
   );
 };
