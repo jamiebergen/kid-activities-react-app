@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Activity from "./Activity";
+import { Card, Header } from "semantic-ui-react";
+import ActivityCard from "./ActivityCard";
 import SearchFilter from "./SearchFilter";
 
 const ActivityList = ({ posts, postsLoaded, selectedIds, setSelectedIds }) => {
@@ -9,21 +10,21 @@ const ActivityList = ({ posts, postsLoaded, selectedIds, setSelectedIds }) => {
 
   return (
     <>
-      <h2>Activities</h2>
+      <Header as="h2">Activities</Header>
       {postsLoaded ? (
         <>
           <SearchFilter posts={posts} setFilteredPosts={setFilteredPosts} />
           {filteredPosts.length > 0 ? (
-            <ul>
+            <Card.Group>
               {filteredPosts.map((post) => (
-                <Activity
+                <ActivityCard
                   key={post.id}
                   post={post}
                   selectedIds={selectedIds}
                   setSelectedIds={setSelectedIds}
                 />
               ))}
-            </ul>
+            </Card.Group>
           ) : (
             <p>No Results</p>
           )}
