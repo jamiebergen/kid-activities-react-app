@@ -1,5 +1,6 @@
 import React from "react";
-import Activity from "./Activity";
+import { Card, Header } from "semantic-ui-react";
+import ActivityCard from "./ActivityCard";
 
 const SelectedActivitiesList = ({ posts, selectedIds, setSelectedIds }) => {
   const selectedActivities = posts.filter((post) =>
@@ -8,18 +9,18 @@ const SelectedActivitiesList = ({ posts, selectedIds, setSelectedIds }) => {
 
   return (
     <>
-      <h2>Selected Activities</h2>
+      <Header as="h2">Selected Activities</Header>
       {selectedActivities.length > 0 ? (
-        <ul>
+        <Card.Group>
           {selectedActivities.map((post) => (
-            <Activity
+            <ActivityCard
               key={post.id}
               post={post}
               selectedIds={selectedIds}
               setSelectedIds={setSelectedIds}
             />
           ))}
-        </ul>
+        </Card.Group>
       ) : (
         <p>No Activities Selected</p>
       )}

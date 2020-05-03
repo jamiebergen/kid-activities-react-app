@@ -1,5 +1,5 @@
 import React from "react";
-import SupplyItem from "./SupplyItem";
+import { Header, List, Checkbox } from "semantic-ui-react";
 
 const SuppliesList = ({ selectedIds, posts }) => {
   const selectedPosts = posts.filter((post) => selectedIds.includes(post.id));
@@ -10,17 +10,17 @@ const SuppliesList = ({ selectedIds, posts }) => {
 
   const suppliesList = [...new Set(suppliesListDupes)];
 
-  console.log(suppliesList);
-
   return (
     <>
-      <h2>Supplies</h2>
+      <Header as="h2">Supplies</Header>
       {suppliesList.length > 0 ? (
-        <ul>
+        <List>
           {suppliesList.map((item) => (
-            <SupplyItem key={item} item={item} />
+            <List.Item>
+              <Checkbox label={item} />
+            </List.Item>
           ))}
-        </ul>
+        </List>
       ) : (
         <p>No Supplies</p>
       )}

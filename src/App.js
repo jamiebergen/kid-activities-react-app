@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "semantic-ui-css/semantic.min.css";
 import "./App.css";
+import { Tab, Container } from "semantic-ui-react";
 
-import Header from "./components/Header";
+import AppHeader from "./components/AppHeader";
 import ActivityList from "./components/ActivityList";
 import SelectedActivitiesList from "./components/SelectedActivitiesList";
 import SuppliesList from "./components/SuppliesList";
@@ -25,21 +27,48 @@ const App = () => {
 
   useEffect(() => fetchPosts(apiUrl), [apiUrl]);
 
+  const panes = [
+    {
+      menuItem: "All Activities",
+      render: () => (
+        <Tab.Pane>
+          <ActivityList
+            posts={posts}
+            postsLoaded={postsLoaded}
+            selectedIds={selectedIds}
+            setSelectedIds={setSelectedIds}
+          />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: "Selected Activities",
+      render: () => (
+        <Tab.Pane>
+          <SelectedActivitiesList
+            posts={posts}
+            selectedIds={selectedIds}
+            setSelectedIds={setSelectedIds}
+          />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: "Supplies",
+      render: () => (
+        <Tab.Pane>
+          <SuppliesList posts={posts} selectedIds={selectedIds} />
+        </Tab.Pane>
+      ),
+    },
+  ];
+
   return (
     <div className="App">
-      <Header />
-      <ActivityList
-        posts={posts}
-        postsLoaded={postsLoaded}
-        selectedIds={selectedIds}
-        setSelectedIds={setSelectedIds}
-      />
-      <SelectedActivitiesList
-        posts={posts}
-        selectedIds={selectedIds}
-        setSelectedIds={setSelectedIds}
-      />
-      <SuppliesList posts={posts} selectedIds={selectedIds} />
+      <Container>
+        <AppHeader />
+        <Tab panes={panes} />
+      </Container>
     </div>
   );
 };

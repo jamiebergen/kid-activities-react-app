@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from "semantic-ui-react";
 
 const SearchFilter = ({ posts, setFilteredPosts }) => {
   const [searchValue, setSearchValue] = useState("");
@@ -8,8 +9,8 @@ const SearchFilter = ({ posts, setFilteredPosts }) => {
     setSearchValue(e.target.value);
   };
 
-  const handleFilterInputChange = (e) => {
-    setFilterValue(e.target.value);
+  const handleFilterInputChange = (e, { value }) => {
+    setFilterValue(value);
   };
 
   const handleSearchFilterSubmit = (e) => {
@@ -30,35 +31,71 @@ const SearchFilter = ({ posts, setFilteredPosts }) => {
     setFilteredPosts(posts);
   };
 
+  const ageOptions = [
+    {
+      key: "baby",
+      text: "Baby",
+      value: "baby",
+    },
+    {
+      key: "todder",
+      text: "Toddler",
+      value: "toddler",
+    },
+    {
+      key: "preschool",
+      text: "Preschool",
+      value: "preschool",
+    },
+    {
+      key: "kindergarten",
+      text: "Kindergarten",
+      value: "kindergarten",
+    },
+    {
+      key: "elementary",
+      text: "Elementary School",
+      value: "elementary",
+    },
+    {
+      key: "middle",
+      text: "Middle School",
+      value: "middle",
+    },
+    {
+      key: "high",
+      text: "High School",
+      value: "high",
+    },
+  ];
+
   return (
-    <form>
-      <label htmlFor="search">Search by title:</label>
-      <input
-        value={searchValue}
-        onChange={handleSearchInputChange}
-        type="text"
-        placeholder="Search"
-        id="search"
-      />
-      <label htmlFor="age-group">Filter by age group:</label>
-      <select
-        name="age"
-        id="age-group"
-        onChange={handleFilterInputChange}
-        value={filterValue}
-      >
-        <option value="">Select Age Group</option>
-        <option value="baby">Baby</option>
-        <option value="toddler">Toddler</option>
-        <option value="kindergarten">Kindergarten</option>
-      </select>
-      <input
-        onClick={handleSearchFilterSubmit}
-        type="submit"
-        value="Filter Activities"
-      />
-      <input onClick={handleClearForm} type="submit" value="Clear" />
-    </form>
+    <Form>
+      <Form.Group widths="equal">
+        <Form.Input
+          fluid
+          label="Search by title:"
+          placeholder="Search..."
+          onChange={handleSearchInputChange}
+          value={searchValue}
+        />
+        <Form.Select
+          fluid
+          clearable
+          label="Filter by age group:"
+          options={ageOptions}
+          placeholder="Age Group"
+          onChange={handleFilterInputChange}
+          value={filterValue}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Button onClick={handleSearchFilterSubmit}>
+          Filter Activities
+        </Form.Button>
+        <Form.Button onClick={handleClearForm}>Clear</Form.Button>
+      </Form.Group>
+    </Form>
   );
 };
 
