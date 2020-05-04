@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useStorageState } from "react-storage-hooks";
 import "semantic-ui-css/semantic.min.css";
-import "./App.css";
 import { Tab, Container } from "semantic-ui-react";
+import "./App.css";
 
 import AppHeader from "./components/AppHeader";
 import ActivityList from "./components/ActivityList";
@@ -11,7 +12,11 @@ import SuppliesList from "./components/SuppliesList";
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [postsLoaded, setPostsLoaded] = useState(false);
-  const [selectedIds, setSelectedIds] = useState([]);
+  const [selectedIds, setSelectedIds] = useStorageState(
+    localStorage,
+    "state-selected-ids",
+    []
+  );
 
   const apiUrl = `https://kidactivities.jamiebergen.com/wp-json/wp/v2/posts`;
 
