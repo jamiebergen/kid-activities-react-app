@@ -3,7 +3,14 @@ import { Card, Header } from "semantic-ui-react";
 import ActivityCard from "./ActivityCard";
 import SearchFilter from "./SearchFilter";
 
-const ActivityList = ({ posts, postsLoaded, selectedIds, setSelectedIds }) => {
+const ActivityList = ({
+  posts,
+  postsLoaded,
+  selectedIds,
+  setSelectedIds,
+  favoriteIds,
+  setFavoriteIds,
+}) => {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => setFilteredPosts(posts), [posts]);
@@ -22,6 +29,8 @@ const ActivityList = ({ posts, postsLoaded, selectedIds, setSelectedIds }) => {
                   post={post}
                   selectedIds={selectedIds}
                   setSelectedIds={setSelectedIds}
+                  favoriteIds={favoriteIds}
+                  setFavoriteIds={setFavoriteIds}
                 />
               ))}
             </Card.Group>

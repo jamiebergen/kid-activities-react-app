@@ -2,23 +2,23 @@ import React from "react";
 import { Card, Header } from "semantic-ui-react";
 import ActivityCard from "./ActivityCard";
 
-const SelectedActivitiesList = ({
+const FavoriteActivitiesList = ({
   posts,
   selectedIds,
   setSelectedIds,
   favoriteIds,
   setFavoriteIds,
 }) => {
-  const selectedActivities = posts.filter((post) =>
-    selectedIds.includes(post.id)
+  const favoriteActivities = posts.filter((post) =>
+    favoriteIds.includes(post.id)
   );
 
   return (
     <>
-      <Header as="h2">Selected Activities</Header>
-      {selectedActivities.length > 0 ? (
+      <Header as="h2">Favorite Activities</Header>
+      {favoriteActivities.length > 0 ? (
         <Card.Group>
-          {selectedActivities.map((post) => (
+          {favoriteActivities.map((post) => (
             <ActivityCard
               key={post.id}
               post={post}
@@ -30,10 +30,10 @@ const SelectedActivitiesList = ({
           ))}
         </Card.Group>
       ) : (
-        <p>No Activities Selected</p>
+        <p>No Favorite Activities</p>
       )}
     </>
   );
 };
 
-export default SelectedActivitiesList;
+export default FavoriteActivitiesList;

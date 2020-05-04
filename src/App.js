@@ -7,6 +7,7 @@ import "./App.css";
 import AppHeader from "./components/AppHeader";
 import ActivityList from "./components/ActivityList";
 import SelectedActivitiesList from "./components/SelectedActivitiesList";
+import FavoriteActivitiesList from "./components/FavoriteActivitiesList";
 import SuppliesList from "./components/SuppliesList";
 
 const App = () => {
@@ -15,6 +16,11 @@ const App = () => {
   const [selectedIds, setSelectedIds] = useStorageState(
     localStorage,
     "state-selected-ids",
+    []
+  );
+  const [favoriteIds, setFavoriteIds] = useStorageState(
+    localStorage,
+    "state-favorite-ids",
     []
   );
 
@@ -42,6 +48,22 @@ const App = () => {
             postsLoaded={postsLoaded}
             selectedIds={selectedIds}
             setSelectedIds={setSelectedIds}
+            favoriteIds={favoriteIds}
+            setFavoriteIds={setFavoriteIds}
+          />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: "Favorite Activities",
+      render: () => (
+        <Tab.Pane>
+          <FavoriteActivitiesList
+            posts={posts}
+            selectedIds={selectedIds}
+            setSelectedIds={setSelectedIds}
+            favoriteIds={favoriteIds}
+            setFavoriteIds={setFavoriteIds}
           />
         </Tab.Pane>
       ),
@@ -54,6 +76,8 @@ const App = () => {
             posts={posts}
             selectedIds={selectedIds}
             setSelectedIds={setSelectedIds}
+            favoriteIds={favoriteIds}
+            setFavoriteIds={setFavoriteIds}
           />
         </Tab.Pane>
       ),

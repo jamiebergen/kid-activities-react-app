@@ -21,13 +21,13 @@ const ActivityModal = ({ post }) => {
           <Header>Supplies:</Header>
           <List bulleted>
             {post.acf.supplies_list.split(", ").map((item) => (
-              <List.Item>{item}</List.Item>
+              <List.Item key={item}>{item}</List.Item>
             ))}
           </List>
           <Header>Ages:</Header>
           <List divided horizontal>
             {post.acf.ages.map((age) => (
-              <List.Item>{age}</List.Item>
+              <List.Item key={age}>{age}</List.Item>
             ))}
           </List>
         </Modal.Description>
