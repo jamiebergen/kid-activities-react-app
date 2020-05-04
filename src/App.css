@@ -13,3 +13,7 @@
 .ui.basic.blue.button-link:active {
   box-shadow: none !important;
 }
+
+.ui.card, .ui.cards > .card {
+  width: 356px !important;
+}
