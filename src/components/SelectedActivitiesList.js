@@ -15,7 +15,7 @@ const SelectedActivitiesList = ({
 
   return (
     <>
-      <Header as="h2">Selected Activities</Header>
+      <Header as="h2">This Week's Activities</Header>
       {selectedActivities.length > 0 ? (
         <Card.Group>
           {selectedActivities.map((post) => (

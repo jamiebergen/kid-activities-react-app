@@ -69,7 +69,7 @@ const App = () => {
       ),
     },
     {
-      menuItem: "Selected Activities",
+      menuItem: "This Week's Activities",
       render: () => (
         <Tab.Pane>
           <SelectedActivitiesList
@@ -83,7 +83,7 @@ const App = () => {
       ),
     },
     {
-      menuItem: "Supplies",
+      menuItem: "Supplies List",
       render: () => (
         <Tab.Pane>
           <SuppliesList posts={posts} selectedIds={selectedIds} />
