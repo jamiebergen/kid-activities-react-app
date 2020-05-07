@@ -2,7 +2,7 @@
 
 This is an app that helps parents or caregivers plan activities for kids. It consumes a curated list of activities from a [WordPress API](https://kidactivities.jamiebergen.com/wp-json/). 
 
-## Features include:
+## Features include
 
 * A view that displays all activities as a filterable list. Users can search by activity title and/or filter by age group. They can then mark their favorite activities and/or select specific activities that they would like to do this week. 
 * Clicking on the activity title opens a modal with additional information about the activity.
@@ -10,7 +10,7 @@ This is an app that helps parents or caregivers plan activities for kids. It con
 * A schedule of this week's activities. Users can drag and drop selected activities within a weekly calendar.
 * A list of supplies required for the selected activities. Users can use checkboxes to mark the supplies they already have.
 
-## Tools used:
+## Tools used
 
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * Styled components come from [Semantic UI React](https://react.semantic-ui.com/).
