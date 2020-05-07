@@ -14,7 +14,7 @@ This is an app that helps parents or caregivers plan activities for kids. It con
 
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * Styled components come from [Semantic UI React](https://react.semantic-ui.com/).
-* Selected activities can be moved on the weekly schedule using the [React draggable component](https://github.com/STRML/react-draggable)
+* Selected activities can be moved on the weekly schedule using the [React draggable component](https://github.com/STRML/react-draggable).
 
 ## Available Scripts
 
