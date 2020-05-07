@@ -18,7 +18,6 @@ const SuppliesList = ({ selectedIds, posts }) => {
   const suppliesList = [...new Set(suppliesListDupes)];
 
   const toggleItem = (e, { label }) => {
-    console.log(checkedSupplies);
     if (checkedSupplies.includes(label)) {
       setCheckedSupplies(checkedSupplies.filter((item) => item !== label));
     } else {
