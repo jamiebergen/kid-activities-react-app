@@ -58,7 +58,7 @@ const ActivityCard = ({
       <Image src={post.fimg_url} wrapped ui={false} alt={post.title.rendered} />
       <Card.Content>
         <Card.Header>
-          <h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+          <ActivityModal post={post} />
         </Card.Header>
         <Card.Meta>
           <span>{post.acf.ages.join(", ")}</span>
@@ -66,7 +66,6 @@ const ActivityCard = ({
         <Card.Description
           dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
         />
-        <ActivityModal post={post} />
       </Card.Content>
       <Card.Content extra>
         <Button icon labelPosition="left" onClick={handleSelect}>

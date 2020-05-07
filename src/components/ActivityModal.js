@@ -1,17 +1,17 @@
 import React from "react";
-import { Modal, Button, Image, List, Header } from "semantic-ui-react";
+import { Modal, Image, List, Header } from "semantic-ui-react";
 
 const ActivityModal = ({ post }) => {
   return (
     <Modal
       trigger={
-        <Button basic color="blue" className="button-link">
-          Read more...
-        </Button>
+        <Modal.Header
+          as="a"
+          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+        />
       }
       closeIcon
     >
-      <Modal.Header dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
       <Modal.Content image scrolling>
         <Image wrapped size="medium" src={post.fimg_url} />
         <Modal.Description>

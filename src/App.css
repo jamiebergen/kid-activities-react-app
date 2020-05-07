@@ -3,17 +3,12 @@
   margin-bottom: 40px;
 }
 
-.ui.basic.blue.button-link {
-  box-shadow: none !important;
-  padding: 12px 0 0 0;
-}
-
-.ui.basic.blue.button-link:hover,
-.ui.basic.blue.button-link:focus,
-.ui.basic.blue.button-link:active {
-  box-shadow: none !important;
-}
-
 .ui.card, .ui.cards > .card {
   width: 356px !important;
+}
+.activity-table-body {
+  position: relative;
+}
+.activity-table-body tr {
+  height: 108px;
 }
